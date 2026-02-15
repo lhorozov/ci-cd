@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  lint-test:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,9 +28,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
+  lint:
       - name: Lint
         run: pnpm run lint
-
+  test:
       - name: Test
         run: pnpm test
